@@ -17,6 +17,11 @@ pipeline {
                 }
             }
         }
+        stage('Archive') {
+            steps {
+                archiveArtifacts 'target/**/*.jar'
+            }        
+        }
         stage('Deliver') { 
             steps {
                 echo "Ready to deploy to target machines" 
