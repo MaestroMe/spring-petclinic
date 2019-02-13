@@ -7,10 +7,5 @@ pipeline {
                 'mvn clean package'
             }
         }
-        stage('Test') { 
-            steps {
-                'mvn test' 
-            }
-        }
     }
 }
