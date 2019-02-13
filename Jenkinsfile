@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                bat './jenkins/scripts/deliver.sh' 
+                echo "Ready to deploy to target machines" 
             }
         }        
     }
