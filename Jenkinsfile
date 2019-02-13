@@ -2,16 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('build && SonarQube analysis') {
+        stage('Build') { 
             steps {
-                withSonarQubeEnv('MySonarQube') {
-                    // Optionally use a Maven environment you've configured already
-                    withMaven(maven:'Maven 3.5') {
-                        bat 'mvn clean package sonar:sonar'
-                    }
-                }
+                bat 'mvn -B -DskipTests clean package' 
             }
-        }             
+        }
         stage('Test') { 
             steps {
                 bat 'mvn test' 
@@ -27,6 +22,5 @@ pipeline {
                 echo "Ready to deploy to target machines" 
             }
         }
-   
     }
 }
